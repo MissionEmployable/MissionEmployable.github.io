@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Oh, hello! Are you inspecting my website?
+ The whole inspiration of this "website" was to be bare bones;
+ a single page, no nested directories, no fluff - just a simple static webpage that gets the point across! 
+ I hope you'll call me at +1 (480) 734-6450 so we can get started today building something incredible together. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ryan Wells Farran - Software Engineer specializing in AI/ML, backend systems, and API development. Experienced in Python, AWS, and enterprise solutions.">
+    <meta name="keywords" content="software engineer, AI developer, Python, AWS, API development, machine learning, Phoenix Arizona">
+    <title>Ryan Wells Farran | Software Engineer</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts - Courier New fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .header-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+        
+        .header-location {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        .header-contacts {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .header-contacts a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .header-contacts a:hover {
+            color: #007bff;
+        }
+        
+        .linkedin-icon {
+            font-size: 1.2rem;
+            color: #0077b5;
+        }
+        
+        .linkedin-icon:hover {
+            color: #005582;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            padding: 40px 0;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        /* Intro Section */
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Video Section */
+        .video-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        /* Resume Section */
+        .resume-section h2 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        .resume-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 3px solid #007bff;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .resume-item h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .resume-item h4 {
+            color: #ccc;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .resume-item p, .resume-item ul {
+            margin-bottom: 10px;
+        }
+        
+        .resume-item ul {
+            padding-left: 20px;
+        }
+        
+        .resume-item li {
+            margin-bottom: 5px;
+        }
+        
+        /* AI Section */
+        .ai-section h2 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        .ai-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .ai-skill-item {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
+        }
+        
+        .ai-skill-item h4 {
+            color: #28a745;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .timeline-section h2 {
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 40px;
+            min-height: 500px;
+        }
+        
+        .timeline-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .timeline-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .timeline-btn:disabled {
+            background-color: #333;
+            cursor: not-allowed;
+        }
+        
+        .timeline-counter {
+            color: #ccc;
+            font-size: 1rem;
+        }
+        
+        .timeline-event {
+            display: none;
+            text-align: center;
+        }
+        
+        .timeline-event.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .timeline-date {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .timeline-image {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .footer a:hover {
+            color: #0056b3;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #888;
+            margin-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .header-contacts {
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .header-contacts a {
+                font-size: 0.8rem;
+            }
+            
+            .main-content {
+                margin-top: 140px;
+            }
+            
+            .intro-text {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .timeline-container {
+                padding: 20px;
+                margin: 0 20px;
+            }
+            
+            .timeline-title {
+                font-size: 1.5rem;
+            }
+            
+            .timeline-date {
+                font-size: 1.2rem;
+            }
+            
+            .ai-skills {
+                grid-template-columns: 1fr;
+                margin: 0 20px;
+            }
+            
+            .resume-item {
+                margin: 0 20px 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-contacts {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .main-content {
+                margin-top: 180px;
+            }
+            
+            .timeline-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <div class="header-name">Ryan Wells Farran</div>
+                    <div class="header-location">Goodyear, AZ, USA</div>
+                </div>
+                <div class="header-contacts">
+                    <a href="tel:+14807346450">📞 +1 (480) 734-6450</a>
+                    <a href="mailto:rwfarran@gmail.com">📧 rwfarran@gmail.com</a>
+                    <a href="https://calendly.com/rwfarran/call-with-ryan" target="_blank">🗓️ Schedule</a>
+                    <a href="https://linkedin.com/in/ryanfarran" target="_blank">👤 Connect</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Intro Section -->
+            <section class="section">
+                <p class="intro-text">
+                    I'm a software engineer with a proven track record of rebuilding legacy backends and building platforms from the ground up. I thrive on complex data migrations, API design, and architecting systems that are resilient, scalable, and easy to maintain. Known as a hardworking developer who does whatever it takes to meet deadlines, I'm deeply passionate about IT and excited about how AI is changing the game.
+                </p>
+            </section>
+
+            <!-- Video Section -->
+            <section class="section video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/r8RJnvX4L7U?si=pmt-AE7rYv97uEi-" 
+                            title="Ryan Farran Video" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Resume Section -->
+            <section class="section resume-section">
+                <h2>Experience & Education</h2>
+                
+                <div class="resume-item">
+                    <h3>Education</h3>
+                    <h4>Bachelor of Science in Computer Science | Oregon State University, 2020</h4>
+                    <p>Two-year Post-baccalaureate Program, School of Electrical Engineering and Computer Science</p>
+                    
+                    <h4>Bachelor of Science in Business Administration | Northern Arizona University, 2016</h4>
+                    <p>Emphasis in Management, The W.A. Franke College of Business</p>
+                </div>
+
+                <div class="resume-item">
+                    <h3>Farran Media (Dentaltown)</h3>
+                    <h4>AI DEVELOPER to IT DIRECTOR to PRESIDENT | September 2023 to August 2025</h4>
+                    <p><strong>Technology:</strong> React Native, Python, MS SQL, 3rd party AI tools, AWS (primarily API Gateway, Lambda, RDS, DynamoDB, S3, SES)</p>
+                    
+                    <p><strong>Text-to-text Dental LLM/AI:</strong> Built the largest dental text dataset, with 2.2 million training samples harvested from 25+ years of Dentaltown data and magazine articles, PubMed studies going back to 1840, multiple textbooks, podcast/CE transcripts, ADA/BLS data, and more</p>
+                    <ul>
+                        <li>Labeled and legally harvested training data using SQL, web scraping, SFTP, transcription services, manual methods, and more</li>
+                        <li>Preprocessed training data to optimize LLM behavior, and built an internal tool for managing and cleaning the training samples further</li>
+                        <li>Fine-tuned (trained) LLM with HuggingFace/PyTorch/CUDA, but after implementing, decided to use Together.ai for cost/time reasons</li>
+                        <li>Built API to manage chat history, leverage a custom targeted advertising system, provide RAG data, personalize the UX, and more</li>
+                    </ul>
+                    
+                    <p><strong>IT Infrastructure Rebuild:</strong> After building the LLM, I expressed concerns about the IT infrastructure as it related to declining engagement, network traffic, and internal processes, and was asked to restructure the company and rebuild both frontend and backend systems, plus infra.</p>
+                    <ul>
+                        <li>Modern, cross-platform React Native frontend; scalable, serverless Python backend; cost-effective, state-of-the-art CICD & infrastructure</li>
+                        <li>Built custom solutions: search engine, digital ads system, instant group messager, secure token auth. system, robust notifications (web sockets, APN/CFM, email), hundreds of backwards compatible API endpoints and stored procedures, and more</li>
+                        <li>The most challenging aspect was no documentation & backwards compatibility with the legacy system, as it is being redesigned in phases</li>
+                        <li>Numerous department functions were automated using "AI function calling", Selenium, Python, and other tools to reallocate labor</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item">
+                    <h3>Personal Project - Cap'n Chat</h3>
+                    <h4>FULL STACK DEVELOPER | May 2023 to September 2023</h4>
+                    <p><strong>Technology:</strong> Python, Flask, HTML/CSS/JS, MySQL, MongoDB, REST APIs, AWS (primarily SQS, SES, S3)</p>
+                    
+                    <p><strong>Cap'n Chat (capnchat.ai):</strong> The first ever online AI group chat platform, where more than one user and more than one AI model could chat through a single interface, playing text-adventure role playing games, integrating three text-to-text and three text-to-image LLMs</p>
+                    <ul>
+                        <li>The frontend and backend were built with Python and Flask, along with MySQL, MongoDB, and a plethora of AWS services</li>
+                        <li>Integrated GPT-3.5 Turbo, GPT-4, & PaLM 2 Bison for chats, DALL-E 2, Stable Diffusion, & Midjourney for avatars & image messages</li>
+                        <li>300 users signed up without any real marketing aside from a few posts on Twitter, but it became clear we needed custom LLMs to facilitate the type of roleplay content that people were interested in, which lead me to pursue a position at Farran Media where I fine-tuned an LLM</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item">
+                    <h3>MedLab2020</h3>
+                    <h4>SENIOR SOFTWARE DEVELOPER | August 2022 to May 2023</h4>
+                    <p><strong>Technology:</strong> .NET, HTML/CSS/JS, MySQL, MongoDB, REST APIs, RabbitMQ, HL7, Azure, AWS</p>
+                    
+                    <p><strong>Data Migration:</strong> .NET project to migrate partial data from three MongoDB sources, thousands of CSV/Excel files, a legacy MySQL database, as well as an LIS API into a new MySQL database in order to unify the company's data and simplify generating reports and investigating patient records</p>
+                    <ul>
+                        <li>The previous database was too rigid, not allowing for new clients or test types to be created, and so we created a more abstract and flexible schema, with numerous mapping tables and an audit trail using triggers, and an internal tool for searching records</li>
+                        <li>Migrating over 50 million records was rushed to meet government regulatory mandates, and so the migration was broken across 12 machines (virtual and physical), each implementing 8 threads and serving up to 25K records per hour</li>
+                    </ul>
+                    
+                    <p><strong>.NET Backend Automation:</strong> The company's backend used three dependent Python projects, which were never designed but added to overtime as new features were needed, and were written by employees before me who were learning to code as they went, and so it was quite challenging to work with, leading me to write two .NET solutions to replace the existing systems, designed to be flexible and user-friendly for developers</p>
+                </div>
+
+                <div class="resume-item">
+                    <h3>Apisero</h3>
+                    <h4>LEAD ENGINEER | October 2021 to July 2022</h4>
+                    <p><strong>Technology:</strong> MuleSoft, DataWeave, MS SQL, MySQL, REST APIs, IBM MQ, HL7, MLLP, Anypoint Cloud Platform, CI/CD Pipelines</p>
+                    
+                    <p><strong>Cambridge Investment Research (client):</strong></p>
+                    <ul>
+                        <li>Lead weekly C4E meetings and delivered presentations to executives to educate them on the company's architectures and ongoing projects</li>
+                        <li>Created company-specific documentation on the Anypoint Platform and MuleSoft best practices</li>
+                    </ul>
+                    
+                    <p><strong>Quest Diagnostics (client):</strong></p>
+                    <ul>
+                        <li>Integrated APIs across all levels of MuleSoft's 3-layer architecture, converting and securely transferring HL7 messages across the company's internal systems over MLLP and HTTPS with SSL/TLS, and also using IBM MQ, Anypoint MQ, and MS SQL Server</li>
+                        <li>Used highly configurable properties file, so adding/updating target systems could be done without altering code</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item">
+                    <h3>Sparklight (formerly Cable ONE)</h3>
+                    <h4>SOFTWARE ENGINEER I | June 2020 to October 2021</h4>
+                    <p><strong>Technology:</strong> .NET, HTML/CSS, JavaScript, Bootstrap, MS SQL, Azure, CI/CD Pipelines</p>
+                    
+                    <ul>
+                        <li><strong>Emergency Broadband Benefit API:</strong> Created web services using .NET and MuleSoft, securely collecting and storing customer data in compliance with USAC, which was sent to the government's NLAD/EBBP API so customers could receive state-sponsored discounts</li>
+                        <li><strong>IIS Log Loader:</strong> .NET application for ingesting IIS network traffic log files across company servers</li>
+                        <li><strong>Wells Fargo Check File Tool:</strong> SOX compliant .NET application for sending CSV check files to Wells Fargo for payroll processing</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item" id="resume-download">
+                    <h3>
+                        <a href="RyanFarranResume.pdf" download>📄 Download full résumé here</a>
+                    </h3>
+                </div>
+
+            </section>
+
+            <!-- AI Section -->
+            <section class="section ai-section">
+                <h2>AI Experience</h2>
+                <div class="ai-skills">
+                    <div class="ai-skill-item">
+                        <h4>Fine-tuned LLMs</h4>
+                        <p>Built and trained custom large language models using Hugging Face/PyTorch/CUDA, as well as 3rd-party services such as Together AI.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>Dataset Creation</h4>
+                        <p>Harvested, cleaned, labeled, and re-contextualized 2.2M+ dental text samples (data from 1840s - present). Samples were preprocessed using LLMs to re-contextualize data as a chatbot conversation.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>AI Function Calling</h4>
+                        <p>Designed structured outputs and automated workflows by integrating LLMs into real-world systems.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>RAG Systems</h4>
+                        <p>Built APIs for retrieval-augmented generation, pulling in real-time SQL data to enhance LLM chatbot output, as well as promote specific content and display targeted advertisements.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>Custom Chatbot Development</h4>
+                        <p>Implemented multiple domain-specific conversational agents for healthcare and roleplay contexts, managing user chat history and metadata.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>AI-powered Platform</h4>
+                        <p>Created Cap'n Chat, the first AI group chat system supporting multiple users and different AI models all chatting through the same interface.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>Text-to-Image Models</h4>
+                        <p>Integrated DALL-E 2, Stable Diffusion, and MidJourney for creating AI avatars and sending image messages.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>Prompt Engineering</h4>
+                        <p>Developed advanced prompting techniques to maximize limited context windows and multi-agent play, as well as "putting words in the AI's mouth" (preprompting) to show LLMs how to format responses in real time without needing to fine-tune an AI to achieve desired behavior.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>AI in Automation</h4>
+                        <p>Leveraged Python, Selenium, and LLMs for automating business processes and data handling.</p>
+                    </div>
+                    
+                    <div class="ai-skill-item">
+                        <h4>Media Production with AI</h4>
+                        <p>Used text-to-image models in conjunction with Google's Veo 3 to create social media marketing materials.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section class="section timeline-section">
+                <h2>Timeline</h2>
+                <div class="timeline-container">
+                    <div class="timeline-nav">
+                        <button class="timeline-btn" id="prevBtn" onclick="changeEvent(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="timeline-counter">
+                            <span id="currentEvent">1</span> / <span id="totalEvents">18</span>
+                        </div>
+                        <button class="timeline-btn" id="nextBtn" onclick="changeEvent(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div id="timelineEvents">
+                        <!-- Timeline events will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p><a href="RyanFarranResume.pdf" download>📄 Download Résumé</a></p>
+            <p>© 2025 Ryan Wells Farran</p>
+            <p class="quote">💡 "A fool admires complexity, a genius admires simplicity."</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        // Timeline data
+        const timelineEvents = [
+            {
+                date: "Summer 1993",
+                title: "Hello, World!",
+                description: "I was born and raised in Phoenix, AZ.",
+                image: "./Arizona.png"
+            },
+            {
+                date: "Spring 1999",
+                title: "Dentaltown Launched",
+                description: "My dad created a social media company before the term even existed, a private community for dentists that is still thriving to this day, which has always isnpired me.",
+                image: "./DentaltownAppIcon.png"
+            },
+            {
+                date: "Spring 2011",
+                title: "Graduated high school",
+                description: "Right after high school, I moved up north to Flagstaff, AZ to attend summer school at Northern Arizona University.",
+                image: "./DesertVistaLogo.png"
+            },
+            {
+                date: "Summer 2015",
+                title: "Began working on Dentistry Uncensored podcast",
+                description: "During college I became passionate about audio-video production, and was lucky to begin working with my dad before I graduated college as a podcast producer. During my time on the podcast, I was lucky to travel to many countries, recording episodes in five continents. We also recorded at our home studio and over Skype, sometimes filming over 20 episodes in one week, seven days a week!",
+                image: "./DentistryUncensoredLogo.png"
+            },
+            {
+                date: "Spring 2016",
+                title: "Graduated NAU with bachelor's in business management",
+                description: "Emphasis in management",
+                image: "./NAU.png"
+            },
+            {
+                date: "Fall 2018",
+                title: "Jasper",
+                description: "My career in IT began after my son was born, when I decided to transition from media production to software development.",
+                image: "./JasperBorn.png"
+            },
+            {
+                date: "Fall 2019",
+                title: "Began software developer internship at CFM",
+                description: "At CFM I worked on a multi-threaded QA automation system that used Selenium for web automation, allowing QA engineers to perform regression testing with multiple CDRs (Cash Dispenser Recycler, such as ATM machines) at once.",
+                image: "./CFM.png"
+            },
+            {
+                date: "Summer 2020",
+                title: "Began software engineer internship at Sparklight",
+                description: "My next internship was at Sparklight (formerly Cable One), where I worked on an internal tool for tracking and graphing network activity.",
+                image: "./Sparklight.png"
+            },
+            {
+                date: "Fall 2020",
+                title: "Became software engineer at Sparklight",
+                description: "After my internship, I went full time at Sparklight, where I gained experience with cloud integration, CICD, MuleSoft, and fell in love with API design.",
+                image: "./Sparklight.png"
+            },
+            {
+                date: "Fall 2020",
+                title: "Married Bayleigh",
+                description: "My wife and I are happily married in Goodyear, AZ with our two children, two cats, three tortoises, and 10 chickens!",
+                image: "./Wedding.png"
+            },
+            {
+                date: "Winter 2020",
+                title: "Graduated OSU with bachelor's in computer science",
+                description: "I was grateful to obtain a full time position before graduating with a degree in computer science. I am also grateful to have worked with languages like C, C++, and even x86 assembly during my time at Oregon State University, because although I have not worked with these languages in my professional career, I gained a deeper understanding of programming by working with these lower-level languages.",
+                image: "./OSU.png"
+            },
+            {
+                date: "October 2021",
+                title: "Became lead engineer at Apisero",
+                description: "After gaining experience with MuleSoft, I decided to pursue a position focusing on that domain, and gained insight into multiple enterprise technical landscapes in the process.",
+                image: "./Apisero.png"
+            },
+            {
+                date: "Summer 2022",
+                title: "Daughter was born",
+                description: "My daughter, Audrey, was born four days after my birthday, and she ushered in a lot of exciting chapters in my professional career!",
+                image: "./AudreyBorn.png"
+            },
+            {
+                date: "Summer 2022",
+                title: "Became senior software engineer at MedLab2020",
+                description: "I decided to leave my position at Apisero to pursue a very intriguing opportunity working for a COVID testing company, where I designed and rebuilt their backend systems, involving a massive and complex data migration, as well built numerous admin tools and a robust API to unlock patient data.",
+                image: "./MedLab2020.png"
+            },
+            {
+                date: "Summer 2023",
+                title: "Created Cap'n Chat",
+                description: "I quit my job and sold my car to fund a passion project after realizing I accidentally created the world's first ever AI group chat platform, where multiple users and different AI models (GPT 3.5 Turbo, GPT 4, PaLM 2 Bison, and more). The platform also involved text-to-image AI generations and many fun features. Over 300 users signed up after making a post on Twitter, but I ran out of money and so needed to re-enter the workforce! I also realized that to take the project to the next level I needed to learn how to fine-tune LLMs, and serendipitously my dad was wanting to create a custom LLM for his company…",
+                image: "./CapnChat.png"
+            },
+            {
+                date: "Fall 2023",
+                title: "Became AI Developer at Farran Media",
+                description: "I approached training LLMs from multiple angles, using HuggingFace/PyTorch/CUDA to train on rented Azure VMs, to OpenAI, but eventually landing on Together AI for time/cost reasons.",
+                image: "./DentaltownAppIcon.png"
+            },
+            {
+                date: "Summer 2024",
+                title: "IT Director at Farran Media",
+                description: "After the LLM was ready to release, I was tasked with first completely rebuilding my dad's 25-year-old IT infrastructure so the AI could be released on a modernized platform. It was a wild project. As the scope of the project grew, we hired more and more developers, managing 12 at the height of the project. As somebody who always admired my dad and his company, Dentaltown, it was truly the honor of my lifetime to work on this project; I would sleep at the office two nights a week to help keep up with the work load, and put blood, sweat, and tears into this project. So much thought went into the UI/UX, focusing on an elegant, minimalist, state-of-the-art user experience.",
+                image: "./DentaltownAppIcon.png"
+            },
+            {
+                date: "Spring 2025",
+                title: "President at Farran Media",
+                description: "As the project grew, I also restructured departments outside of IT, simplifying and automating workflows. After the trajectory of the company was redirected, I felt I had completed my duty and so stepped down from my role as president, but am still involved, helping with the transition and assisting with promoting the upgraded platform.",
+                image: "./DentaltownAppIcon.png"
+            },
+            {
+                date: "Fall 2025",
+                title: "Present day",
+                description: "After completely rebuilding multiple companies' legacy systems, building my own platform, and working with a wide variety of LLMs and AI tools, I am excited to jump into my next project. I live to work, and my happy place is staying up late working on complex problems, so if you have a problem that needs solving or a mess that needs cleaning, please reach out to me anytime 24/7/365 at +1 (480) 734-6450 and let's get started today.",
+                image: "./FamilyPresent.png"
+            }
+        ];
+
+        let currentEventIndex = 5; // Start at son's birth (Fall 2018)
+
+        // Initialize timeline
+        function initTimeline() {
+            const eventsContainer = document.getElementById('timelineEvents');
+            document.getElementById('totalEvents').textContent = timelineEvents.length;
+            
+            timelineEvents.forEach((event, index) => {
+                const eventDiv = document.createElement('div');
+                eventDiv.className = 'timeline-event';
+                if (index === currentEventIndex) {
+                    eventDiv.classList.add('active');
+                }
+                
+                eventDiv.innerHTML = `
+                    <div class="timeline-date">${event.date}</div>
+                    <h3 class="timeline-title">${event.title}</h3>
+                    <img src="${event.image}" alt="${event.title}" class="timeline-image">
+                    <p class="timeline-description">${event.description}</p>
+                `;
+                
+                eventsContainer.appendChild(eventDiv);
+            });
+            
+            updateNavigation();
+        }
+
+        // Change timeline event
+        function changeEvent(direction) {
+            const events = document.querySelectorAll('.timeline-event');
+            events[currentEventIndex].classList.remove('active');
+            
+            currentEventIndex += direction;
+            
+            if (currentEventIndex < 0) {
+                currentEventIndex = 0;
+            } else if (currentEventIndex >= timelineEvents.length) {
+                currentEventIndex = timelineEvents.length - 1;
+            }
+            
+            events[currentEventIndex].classList.add('active');
+            updateNavigation();
+        }
+
+        // Update navigation buttons and counter
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentEventSpan = document.getElementById('currentEvent');
+            
+            prevBtn.disabled = currentEventIndex === 0;
+            nextBtn.disabled = currentEventIndex === timelineEvents.length - 1;
+            currentEventSpan.textContent = currentEventIndex + 1;
+        }
+
+        // Handle 404 logic
+        function handle404() {
+            if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+                window.location.href = '/404.html';
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initTimeline();
+            handle404();
+        });
+
+        // Smooth scrolling for internal links
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 100
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
